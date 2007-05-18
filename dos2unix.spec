@@ -1,11 +1,12 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	1.0.0
-Release:	%mkrel 3
+Version:	1.0.1
+Release:	%mkrel 1
 License:	GPL
 Group:		Text tools
 URL:		http://www.megaloman.com/~hany/software/hd2u/
-Source:		hd2u-%{version}.tar.bz2
+Source0:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz
+Source1:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz.sig
 BuildRequires:	popt-devel
 BuildRoot:	%{_tmppath}/%{name}-root
 
@@ -36,7 +37,7 @@ install -m755 dos2unix %{buildroot}%{_bindir}/
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS CREDITS ChangeLog INSTALL NEWS README TODO
+%doc AUTHORS CREDITS ChangeLog NEWS README TODO
 %{_bindir}/dos2unix
 
 
