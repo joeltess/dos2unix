@@ -1,6 +1,6 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	1.0.1
+Version:	1.0.2
 Release:	%mkrel 1
 License:	GPL
 Group:		Text tools
@@ -39,5 +39,3 @@ install -m755 dos2unix %{buildroot}%{_bindir}/
 %defattr(-,root,root)
 %doc AUTHORS CREDITS ChangeLog NEWS README TODO
 %{_bindir}/dos2unix
-
-
