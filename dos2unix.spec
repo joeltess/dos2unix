@@ -8,7 +8,6 @@ URL:		http://www.megaloman.com/~hany/software/hd2u/
 Source0:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz
 Source1:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz.sig
 BuildRequires:	popt-devel
-BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 hd2u is "Hany's Dos2Unix converter". It provides 'dos2unix'.
