@@ -1,7 +1,7 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	1.0.2
-Release:	%mkrel 3
+Version:	1.0.3
+Release:	%mkrel 1
 License:	GPL
 Group:		Text tools
 URL:		http://www.megaloman.com/~hany/software/hd2u/
@@ -17,23 +17,19 @@ hd2u is "Hany's Dos2Unix converter". It provides 'dos2unix'.
 EOLs and vice versa (EOL - End Of Line character).
 
 %prep
-
 %setup -q -n hd2u-%{version}
 
 %build
-
-%configure
-
+%configure2_5x
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
-install -d %{buildroot}%{_bindir}
-install -m755 dos2unix %{buildroot}%{_bindir}/
+install -m755 dos2unix -D %{buildroot}%{_bindir}/dos2unix
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
