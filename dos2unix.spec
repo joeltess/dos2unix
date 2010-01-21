@@ -2,7 +2,7 @@ Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
 Version:	1.0.3
 Release:	%mkrel 2
-License:	GPL
+License:	GPLv2+
 Group:		Text tools
 URL:		http://www.megaloman.com/~hany/software/hd2u/
 Source0:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz
