@@ -1,37 +1,57 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	1.0.3
-Release:	%mkrel 5
-License:	GPLv2+
+Version:	5.3.1
+Release:	%mkrel 1
+License:	BSD
 Group:		Text tools
-URL:		http://www.megaloman.com/~hany/software/hd2u/
-Source0:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz
-Source1:	http://hany.sk/~hany/_data/hd2u/hd2u-%{version}.tgz.sig
-BuildRequires:	popt-devel
+URL:		http://waterlan.home.xs4all.nl/dos2unix.html
+Source0:	http://waterlan.home.xs4all.nl/dos2unix/%{name}-%{version}.tar.gz
+BuildRequires:	gettext
+BuildRequires:	perl-devel
+Provides:	unix2dos = %{version}-%{release}
+Provides:	mac2unix = %{version}-%{release}
+Provides:	unix2mac = %{version}-%{release}
+Obsoletes:	unix2dos < 5.3.1
 BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
-hd2u is "Hany's Dos2Unix converter". It provides 'dos2unix'.
+A filter used to convert DOS-style EOLs to UNIX-style EOLs and vice
+versa (EOL - End Of Line character).
 
-'dos2unix' is filter used to convert DOS-style EOLs to UNIX-style
-EOLs and vice versa (EOL - End Of Line character).
+This package contains updated Benjamin Lin's implementations of dos2unix
+and unix2dos.
+
+Benjamin Lin's implementations of dos2unix and unix2dos are a part of many
+Linux distributions such as RedHat, Fedora, Suse, Gentoo and others.
+This update includes all RedHat patches and fixes several other problems.
+Internationalization has been added and ports to various OS have been made.
 
 %prep
-%setup -q -n hd2u-%{version}
+%setup -q
 
 %build
-%configure2_5x
 %make
 
 %install
 rm -rf %{buildroot}
+%makeinstall_std
 
-install -m755 dos2unix -D %{buildroot}%{_bindir}/dos2unix
+# doc is installed two times in doc dir
+rm -rf %{buildroot}%{_docdir}/%{name}
+
+%find_lang %{name}
 
 %clean
 rm -rf %{buildroot}
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
-%doc AUTHORS CREDITS ChangeLog NEWS README TODO
+%doc %{_docdir}/%{name}-%{version}/*
 %{_bindir}/dos2unix
+%{_bindir}/unix2dos
+%{_bindir}/mac2unix
+%{_bindir}/unix2mac
+%{_mandir}/man1/*.1*
+%{_mandir}/es/man1/*.1*
+%{_mandir}/nl/man1/*.1*
+
