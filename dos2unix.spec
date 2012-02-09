@@ -1,6 +1,6 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	5.3.1
+Version:	5.3.2
 Release:	%mkrel 1
 License:	BSD
 Group:		Text tools
@@ -12,7 +12,6 @@ Provides:	unix2dos = %{version}-%{release}
 Provides:	mac2unix = %{version}-%{release}
 Provides:	unix2mac = %{version}-%{release}
 Obsoletes:	unix2dos < 5.3.1
-BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 A filter used to convert DOS-style EOLs to UNIX-style EOLs and vice
@@ -33,16 +32,16 @@ Internationalization has been added and ports to various OS have been made.
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 %makeinstall_std
 
 # doc is installed two times in doc dir
-rm -rf %{buildroot}%{_docdir}/%{name}
+%__rm -rf %{buildroot}%{_docdir}/%{name}
 
 %find_lang %{name}
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
