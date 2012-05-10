@@ -1,6 +1,6 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	5.3.3
+Version:	6.0
 Release:	1
 License:	BSD
 Group:		Text tools
@@ -8,9 +8,9 @@ URL:		http://waterlan.home.xs4all.nl/dos2unix.html
 Source0:	http://waterlan.home.xs4all.nl/dos2unix/%{name}-%{version}.tar.gz
 BuildRequires:	gettext
 BuildRequires:	perl-devel
-Provides:	unix2dos = %{version}-%{release}
-Provides:	mac2unix = %{version}-%{release}
-Provides:	unix2mac = %{version}-%{release}
+Provides:	unix2dos = %{EVRD}
+Provides:	mac2unix = %{EVRD}
+Provides:	unix2mac = %{EVRD}
 Obsoletes:	unix2dos < 5.3.1
 
 %description
@@ -35,12 +35,12 @@ Internationalization has been added and ports to various OS have been made.
 %makeinstall_std
 
 # doc is installed two times in doc dir
-%__rm -rf %{buildroot}%{_docdir}/%{name}
+%__mv %{buildroot}%{_docdir}/%{name}-%{version}/ %{buildroot}%{_docdir}/%{name}
 
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc %{_docdir}/%{name}-%{version}/*
+%doc %{_docdir}/%{name}/*
 %{_bindir}/dos2unix
 %{_bindir}/unix2dos
 %{_bindir}/mac2unix
