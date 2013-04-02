@@ -29,7 +29,7 @@ Internationalization has been added and ports to various OS have been made.
 %setup -q
 
 %build
-%make
+%make CC=%{__cc}
 
 %install
 %makeinstall_std
