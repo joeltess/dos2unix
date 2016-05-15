@@ -1,6 +1,6 @@
 Summary:	Converts DOS-style EOLs to UNIX-style EOLs and vice versa
 Name:		dos2unix
-Version:	7.3
+Version:	7.3.3
 Release:	1
 License:	BSD
 Group:		Text tools
